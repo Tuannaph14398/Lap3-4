@@ -1,0 +1,28 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "tuannaph14398",
+      "class": "WE16304"
+    },
+    {
+      "id": 2,
+      "name": "quannmph14637",
+      "class": "WE16300"
+    }
+  ],
+  "posts": [
+    {
+      "id": 2,
+      "title": "Thông báo thi lại",
+      "content": "Hình thức thi lại online do dịch bệnh covid còn nhiều phức tạp",
+      "status": 1
+    },
+    {
+      "title": "Nhập học 2022",
+      "content": "Nhập học trong tháng này sẽ được giảm 10% cho kỳ đầu tiên",
+      "status": "0",
+      "id": 3
+    }
+  ]
+}

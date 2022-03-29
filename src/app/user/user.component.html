@@ -1,0 +1,57 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 offset-3 mt-5">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name:</label>
+                        <input type="text" name="name" placeholder="Mời nhập name" id="name" class="form-control" (input)="onChange($event, 'name')" [value]="newUser.name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="age" class="form-label">Age:</label>
+                        <input type="text" name="age" placeholder="Mời nhập Age" id="age" class="form-control" (input)="onChange($event, 'age')" [value]="newUser.age">
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone:</label>
+                        <input type="text" name="phone" placeholder="Mời nhập Phone" id="phone" class="form-control" (input)="onChange($event, 'phone')" [value]="newUser.phone">
+                    </div>
+                    <div class="mb-3">
+                        <label for="avatar" class="form-label">Avartar:</label>
+                        <input type="text" name="avatar" placeholder="Mời nhập Avartar" id="avatar" class="form-control" (input)="onChange($event, 'avatar')" [value]="newUser.avatar">
+                    </div>
+                    <button type="button" class="btn btn-primary" [disabled]="!onValidate(newUser)" (click)="onSumbit()">Sumbit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="col-md-8 offset-2 mt-5 ">
+    <input class="form-control" type="search" placeholder="Search" (input)="onSearch($event)">
+</div>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">SĐT</th>
+        <th scope="col">Avartar</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of usersFilter">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.age}}</td>
+            <td>{{item.phone}}</td>
+            <td>
+              <img height="100" src="{{item.avatar}}" alt="">
+              <img height="100" [src]="item.avatar" alt="">
+            </td>
+            <td><button (click)="remove(item.id)" class="btn btn-danger">Delete</button></td>
+            <td><button (click)="onEdit(item)" class="btn btn-primary">Edit</button></td>
+        </tr>
+    </tbody>
+</table>

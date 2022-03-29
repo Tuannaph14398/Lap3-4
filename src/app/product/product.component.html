@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-3 mt-5">{{productForm.value | json}}</div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-3 mt-5">{{newProduct | json}}</div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-3 mt-5">
+      <form #productForm="ngForm" (submit)="onSubmit()">
+        <div class="mb-3">
+          <label for="" class="form-label">Tên sản phẩm:</label>
+          <input type="text" name="name" placeholder="Mời nhập name" id="" class="form-control" [(ngModel)]="newProduct.name" [value]="newProduct.name">
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Mô tả sp:</label>
+          <input type="text" name="descripttion" placeholder="Mời nhập mô tả sp" id="" class="form-control" [(ngModel)]="newProduct.descripttion" [value]="newProduct.descripttion">
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Giá:</label>
+          <input type="text" name="price" placeholder="Mời nhập giá" id="" class="form-control" [(ngModel)]="newProduct.price" [value]="newProduct.price">
+        </div>
+        <div class="from-group">
+          <button type="submit" class="btn btn-primary">Sumbit</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6 offset-3 mt-5">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Ten SP</th>
+            <th>Mô tả</th>
+            <th>giá</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of productsFilter">
+            <td>{{item.name}}</td>
+            <td>{{item.descripttion}}</td>
+            <td>{{item.price}}</td>
+            <td><button (click)="remove(item.name)" class="btn btn-danger">Delete</button></td>
+            <td><button (click)="onEdit(item)" class="btn btn-primary">Edit</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
